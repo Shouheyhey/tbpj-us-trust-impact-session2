@@ -236,10 +236,11 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       width: 5rem;
       font-size: 1.07rem;
     }
-    /* 経路詳細スライド（p9–12）：経路図ブロックを画面の約2/3の高さに */
+    /* 経路詳細：p12 は上段を広め、p9–11 は p8 の1行分の立ち幅に合わせる */
     .slide-path-detail.slide-compact .slide-compact-main.path-detail-split {
       overflow: hidden;
-      gap: 0.4rem;
+      min-height: 0;
+      gap: 0.45rem;
     }
     .slide-path-detail .path-detail-flow {
       flex: 1 1 64%;
@@ -263,6 +264,32 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
     .slide-path-detail.slide-compact .path-detail-flow .path-arrow {
       font-size: 1.42rem;
     }
+    /* p9–11：p8 の paths-fill（約66%）を4等分した1行 ≒ 同じ立ち幅 */
+    .slide-path-detail.path-detail-single-row .path-detail-flow {
+      flex: 0 0 auto;
+      min-height: 0;
+      height: calc((100vh - 13rem) * 0.165);
+      max-height: calc((100vh - 13rem) * 0.165);
+      min-height: 3.35rem;
+    }
+    .slide-path-detail.path-detail-single-row .path-detail-flow .path-row {
+      flex: 1;
+      min-height: 0;
+      max-height: 100%;
+      padding: 0.55rem 0.65rem;
+    }
+    .slide-path-detail.path-detail-single-row.slide-compact .path-detail-flow .path-box {
+      font-size: clamp(0.92rem, 1.22vw, 1.34rem) !important;
+      padding: 0.48rem 0.52rem;
+      line-height: 1.22;
+    }
+    .slide-path-detail.path-detail-single-row.slide-compact .path-detail-flow .path-arrow {
+      font-size: clamp(1.28rem, 1.9vw, 1.95rem);
+    }
+    .slide-path-detail.path-detail-single-row .path-detail-copy {
+      flex: 1 1 auto;
+      min-height: 0;
+    }
     .slide-path-detail .path-detail-copy {
       flex: 1 1 34%;
       min-height: 0;
@@ -278,6 +305,19 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       font-size: 1.1rem;
       margin-bottom: 0.4rem;
       line-height: 1.32;
+    }
+    .slide-path-detail.path-detail-single-row.slide-compact .path-detail-copy ul.custom-list > li {
+      font-size: 1.22rem;
+      margin-bottom: 0.45rem;
+      line-height: 1.38;
+    }
+    .slide-path-detail.path-detail-single-row .path-footer-box p.text-3xl {
+      font-size: 1.45rem !important;
+      line-height: 1.35;
+    }
+    .slide-path-detail.path-detail-single-row .path-footer-box {
+      padding: 0.65rem 0.85rem !important;
+      margin-top: 0.5rem !important;
     }
     .slide-path-detail.slide-compact .path-detail-copy ul.custom-list ul > li {
       font-size: 0.98rem;
@@ -587,7 +627,7 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
   </section>
 
   <!-- スライド 9: 経路1 -->
-  <section class="slide slide-compact slide-path-detail">
+  <section class="slide slide-compact slide-path-detail path-detail-single-row">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路1：使途制限のない資金からインパクトへ</h2>
     </div>
@@ -621,7 +661,7 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
   </section>
 
   <!-- スライド 10: 経路2 -->
-  <section class="slide slide-compact slide-path-detail">
+  <section class="slide slide-compact slide-path-detail path-detail-single-row">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路2：信頼に基づく関係性からインパクトへ</h2>
     </div>
@@ -655,7 +695,7 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
   </section>
 
   <!-- スライド 11: 経路3 -->
-  <section class="slide slide-compact slide-path-detail">
+  <section class="slide slide-compact slide-path-detail path-detail-single-row">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路3：管理負担の軽減からインパクトへ</h2>
     </div>
