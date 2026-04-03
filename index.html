@@ -203,11 +203,11 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       flex-shrink: 0;
     }
     .slide-path-overview .slide-header h2 {
-      font-size: clamp(1.5rem, 2.2vw, 2.1rem) !important;
+      font-size: clamp(1.56rem, 2.28vw, 2.18rem) !important;
       line-height: 1.2;
     }
     .slide-path-overview .slide-header p.text-2xl {
-      font-size: 1.05rem !important;
+      font-size: 1.12rem !important;
     }
     .slide-path-overview .paths-fill {
       flex: 1 1 66%;
@@ -224,17 +224,69 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       margin-bottom: 0;
     }
     .slide-path-overview .path-box {
-      font-size: clamp(0.88rem, 1.15vw, 1.28rem) !important;
-      padding: 0.45rem 0.5rem;
-      line-height: 1.2;
+      font-size: clamp(0.92rem, 1.22vw, 1.34rem) !important;
+      padding: 0.48rem 0.52rem;
+      line-height: 1.22;
     }
     .slide-path-overview .path-arrow {
-      font-size: clamp(1.2rem, 1.8vw, 1.85rem);
+      font-size: clamp(1.28rem, 1.9vw, 1.95rem);
       margin: 0 0.3rem;
     }
     .slide-path-overview .path-label {
       width: 5rem;
-      font-size: 1rem;
+      font-size: 1.07rem;
+    }
+    /* 経路詳細スライド（p9–12）：経路図ブロックを画面の約2/3の高さに */
+    .slide-path-detail.slide-compact .slide-compact-main.path-detail-split {
+      overflow: hidden;
+      gap: 0.4rem;
+    }
+    .slide-path-detail .path-detail-flow {
+      flex: 1 1 64%;
+      min-height: 0;
+      display: flex;
+      align-items: stretch;
+    }
+    .slide-path-detail .path-detail-flow .path-row {
+      flex: 1;
+      width: 100%;
+      margin-bottom: 0 !important;
+      min-height: 4.5rem;
+      padding: 0.5rem 0.7rem;
+      align-self: stretch;
+    }
+    .slide-path-detail.slide-compact .path-detail-flow .path-box {
+      font-size: 1.1rem !important;
+      padding: 0.4rem 0.5rem;
+      line-height: 1.22;
+    }
+    .slide-path-detail.slide-compact .path-detail-flow .path-arrow {
+      font-size: 1.42rem;
+    }
+    .slide-path-detail .path-detail-copy {
+      flex: 1 1 34%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      padding-bottom: 0.15rem;
+    }
+    .slide-path-detail .path-detail-copy ul.custom-list {
+      margin-top: 0 !important;
+    }
+    .slide-path-detail.slide-compact .path-detail-copy ul.custom-list > li {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.32;
+    }
+    .slide-path-detail.slide-compact .path-detail-copy ul.custom-list ul > li {
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.35;
+    }
+    .slide-path-detail.slide-compact .path-footer-box,
+    .slide-path-detail.slide-compact .path-note-bar {
+      flex-shrink: 0;
     }
     .ssir-summary-box {
       background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
@@ -535,11 +587,12 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
   </section>
 
   <!-- スライド 9: 経路1 -->
-  <section class="slide slide-compact">
+  <section class="slide slide-compact slide-path-detail">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路1：使途制限のない資金からインパクトへ</h2>
     </div>
-    <div class="slide-compact-main">
+    <div class="slide-compact-main path-detail-split">
+    <div class="path-detail-flow">
     <div class="path-row mb-6">
       <div class="path-box">使途制限のない資金</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -549,6 +602,8 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
+    </div>
+    <div class="path-detail-copy">
     <ul class="custom-list mt-8">
       <li><strong>論点：</strong>世界は予測不能であり、方針転換は「例外」ではなく<strong>常態</strong>。使途制限付き資金は、新たなエビデンスが出ても<strong>当初計画に固執させる</strong>という構造的な非合理を生みやすい。</li>
       <li><strong>典型例（帰還市民向けツールキット）：</strong>対象者にネット環境がないと判明しても、契約に縛られ<strong>書面配布を続けざるを得なかった</strong>というジレンマ。</li>
@@ -562,14 +617,16 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       </p>
     </div>
     </div>
+    </div>
   </section>
 
   <!-- スライド 10: 経路2 -->
-  <section class="slide slide-compact">
+  <section class="slide slide-compact slide-path-detail">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路2：信頼に基づく関係性からインパクトへ</h2>
     </div>
-    <div class="slide-compact-main">
+    <div class="slide-compact-main path-detail-split">
+    <div class="path-detail-flow">
     <div class="path-row mb-6">
       <div class="path-box">信頼に基づく関係性</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -579,6 +636,8 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
+    </div>
+    <div class="path-detail-copy">
     <ul class="custom-list mt-8">
       <li><strong>論点：</strong>信頼が薄いと助成先は失敗やリスクを隠しがち。情報が届かなければ、資金提供者は<strong>的確な支援ができない</strong>。</li>
       <li><strong>逆に信頼があれば：</strong>最高裁対応やセキュリティ脅威など、<strong>計画外の緊急ニーズ</strong>を率直に共有でき、迅速な対応助成や横断的な研修など「申請書にない支援」が可能になる。</li>
@@ -592,14 +651,16 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       </p>
     </div>
     </div>
+    </div>
   </section>
 
   <!-- スライド 11: 経路3 -->
-  <section class="slide slide-compact">
+  <section class="slide slide-compact slide-path-detail">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路3：管理負担の軽減からインパクトへ</h2>
     </div>
-    <div class="slide-compact-main">
+    <div class="slide-compact-main path-detail-split">
+    <div class="path-detail-flow">
     <div class="path-row mb-6">
       <div class="path-box">管理負担の軽減</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -609,6 +670,8 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
+    </div>
+    <div class="path-detail-copy">
     <ul class="custom-list mt-6">
       <li><strong>論点：</strong>使途制限付き助成と個別報告は、人的資源を<strong>管理業務に吸収</strong>し、プログラムから奪う。</li>
       <li><strong>構造的歪み（若者支援の例）：</strong>報告しやすい定量指標（指導時間、テストスコア等）を優先せざるを得ず、<strong>関係性や社会情動スキルなど質的サービスが後回し</strong>に—いわゆる測定可能性バイアス。</li>
@@ -622,14 +685,16 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       </p>
     </div>
     </div>
+    </div>
   </section>
 
   <!-- スライド 12: 経路4 -->
-  <section class="slide slide-compact">
+  <section class="slide slide-compact slide-path-detail">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路4：助成先の専門性への信頼</h2>
     </div>
-    <div class="slide-compact-main">
+    <div class="slide-compact-main path-detail-split">
+    <div class="path-detail-flow">
     <div class="path-row mb-6">
       <div class="path-box" style="font-size: 1.3rem;">助成先の専門性への信頼</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -639,14 +704,23 @@ task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh,
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
+    </div>
+    <div class="path-detail-copy">
     <ul class="custom-list mt-4">
       <li><strong>論点：</strong>米国の助成財団スタッフ数の中央値は<strong>わずか4名</strong>。すべての分野の専門性を内製するのは非現実的。</li>
       <li><strong>前提の転換：</strong>「課題に最も近い当事者が最良の解決策を持つ」と認め、<strong>専門性の所在を助成先側に置く</strong>。財団は分野別に人を増やさず、複数領域に戦略的に関与できる＝<strong>専門性の外部化による効率</strong>。</li>
-      <li><strong>米国事例（短縮）：</strong>Women's Fund of Central Indiana（申請不要・ウェルネス支援）、Pretty Passionate Hands（当事者主導を信頼）、Jane Bancroft Robinson財団（受益者を解決策の設計者として位置づけ）。</li>
+      <li><strong>米国での具体例：</strong>
+        <ul>
+          <li><strong>Women's Fund of Central Indiana</strong>：初年度は申請を求めず、代表者向けウェルネス支援も組み合わせ、現場のペースを尊重するTBPパイロットを始めた。</li>
+          <li><strong>Pretty Passionate Hands</strong>：10代母親への支援で、当事者主導のリーダーシップと現場の判断を信頼し、プログラム設計の専門性を委ねた。</li>
+          <li><strong>Jane Bancroft Robinson財団</strong>：住民との対話を重ね、受益者を「支援の受け手」ではなく「解決策の共同設計者」として位置づけた。</li>
+        </ul>
+      </li>
     </ul>
     <div class="path-note-bar mt-6 bg-slate-200 p-4 rounded-lg flex items-center">
       <i class="fas fa-info-circle text-teal-600 text-xl mr-3 flex-shrink-0"></i>
       <p class="text-xl text-slate-700 font-bold">【グラデーションの存在】 報告書の簡素化といった漸進的な改善から、意思決定構造そのものをフラットにする根本的な変革まで、多様なアプローチがある。</p>
+    </div>
     </div>
     </div>
   </section>
