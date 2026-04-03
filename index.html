@@ -1,0 +1,660 @@
+﻿<!DOCTYPE html>
+<!--
+created_by: cursor
+created_at: 2026-04-03
+project: TBP-J
+task: public web slides session2 US trust impact (GitHub Pages ready)
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アメリカの知恵と実践に学ぶ——信頼はどうインパクトにつながるのか</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      overflow: hidden;
+      background-color: #f8fafc;
+      color: #1e293b;
+      user-select: none;
+    }
+    .slide {
+      display: none !important;
+      height: 100vh;
+      width: 100vw;
+      padding: 4rem 6rem;
+      box-sizing: border-box;
+      flex-direction: column;
+      animation: fadeIn 0.4s ease-out;
+      position: relative;
+    }
+    .slide.active {
+      display: flex !important;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide-header {
+      border-bottom: 3px solid #0d9488;
+      padding-bottom: 1rem;
+      margin-bottom: 3rem;
+      padding-right: 280px;
+    }
+    ul.custom-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    ul.custom-list > li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      line-height: 1.5;
+    }
+    ul.custom-list > li::before {
+      content: "■";
+      position: absolute;
+      left: 0;
+      color: #0d9488;
+      font-size: 1.2rem;
+      top: 0.3rem;
+    }
+    ul.custom-list ul {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    ul.custom-list ul > li {
+      font-size: 1.5rem;
+      color: #475569;
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    ul.custom-list ul > li::before {
+      content: "・";
+      position: absolute;
+      left: 0;
+      color: #64748b;
+    }
+    .path-row {
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background-color: #f1f5f9;
+      border-radius: 0.5rem;
+      min-height: 120px;
+    }
+    .path-label {
+      width: 90px;
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: #475569;
+      font-size: 1.4rem;
+    }
+    .path-box {
+      background-color: white;
+      border: 2px solid #cbd5e1;
+      border-radius: 0.5rem;
+      padding: 0.8rem;
+      text-align: center;
+      font-weight: bold;
+      color: #1e293b;
+      flex: 1;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      line-height: 1.3;
+    }
+    .path-arrow {
+      color: #94a3b8;
+      font-size: 2rem;
+      margin: 0 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-top: 5px solid #0d9488;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    }
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      gap: 15px;
+      z-index: 100;
+    }
+    .ctrl-btn {
+      background-color: rgba(255,255,255,0.8);
+      border: 1px solid #cbd5e1;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      color: #475569;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+      transition: all 0.2s;
+    }
+    .ctrl-btn:hover {
+      background-color: #0d9488;
+      color: white;
+      border-color: #0d9488;
+    }
+    .progress {
+      position: fixed;
+      bottom: 40px;
+      left: 40px;
+      font-size: 1.5rem;
+      color: #64748b;
+      z-index: 100;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="assets/trust-based-philanthropy-japan-logo.png" id="global-logo" style="position: fixed; top: 30px; right: 50px; height: 60px; z-index: 100; display: none; object-fit: contain;" alt="Trust-Based Philanthropy Japan のロゴ" onerror="this.style.display='none'">
+
+  <div class="progress" id="progress">1 / 15</div>
+  <div class="controls">
+    <button class="ctrl-btn" onclick="toggleFullScreen()" title="フルスクリーン切り替え">
+      <i class="fas fa-expand"></i>
+    </button>
+    <button class="ctrl-btn" onclick="prevSlide()" title="前のスライド (←)"><i class="fas fa-chevron-left"></i></button>
+    <button class="ctrl-btn" onclick="nextSlide()" title="次のスライド (→)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <!-- スライド 1: 表紙 -->
+  <section class="slide active flex items-center justify-center text-center" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+    <div class="max-w-5xl">
+      <p class="text-2xl text-teal-600 font-bold mb-4 tracking-widest">全3回シリーズ 第2回</p>
+      <h1 class="text-6xl font-bold text-slate-800 leading-tight mb-8">
+        アメリカの知恵と実践に学ぶ<br>
+        <span class="text-5xl text-slate-600 mt-4 block">——信頼はどうインパクトにつながるのか</span>
+      </h1>
+      <div class="bg-white inline-block px-8 py-4 rounded-lg shadow-sm border border-slate-200 mt-8">
+        <p class="text-2xl text-slate-700 font-medium">オンライン（Zoom） / 60分</p>
+      </div>
+      <div class="mt-12 text-xl text-slate-500 font-medium flex justify-center items-center gap-4">
+        <span class="opacity-60">第1回: 問題意識</span>
+        <i class="fas fa-arrow-right text-teal-400"></i>
+        <span class="text-teal-700 font-bold bg-teal-50 px-4 py-2 rounded">第2回: 4つの経路（本回）</span>
+        <i class="fas fa-arrow-right text-teal-400"></i>
+        <span class="opacity-60">第3回: 具体的な実践</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- スライド 2: アジェンダとグランドルール -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">アジェンダとグランドルール</h2>
+    </div>
+    <div class="flex gap-12 h-full">
+      <div class="w-1/2">
+        <h3 class="text-3xl font-bold text-teal-700 mb-6 border-l-4 border-teal-500 pl-4">本日の流れ</h3>
+        <ul class="custom-list mt-8">
+          <li>背景とエビデンスの全体像</li>
+          <li>4つの経路（原因からインパクトへ）</li>
+          <li>日本の文脈への接続と統合</li>
+        </ul>
+      </div>
+      <div class="w-1/2 bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
+        <h3 class="text-3xl font-bold text-slate-700 mb-6 border-b pb-4">グランドルールと立ち位置</h3>
+        <ul class="custom-list">
+          <li>私たち3名も「先生」ではなく<strong>「探求者」</strong>です</li>
+          <li>間違いを正すのではなく、共に<strong>「より良く」していく場</strong>にしましょう</li>
+          <li>「ではの神」にならず、特定組織への批判は行いません</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- スライド 3: 第1回の振り返り -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">第1回の振り返り：インパクトへのアプローチ</h2>
+    </div>
+    <div class="flex flex-col items-center justify-center h-full pb-20">
+      <div class="text-center mb-12">
+        <p class="text-4xl font-bold text-slate-600 mb-4 line-through decoration-red-400 decoration-4">
+          「インパクトを手放した」
+        </p>
+        <p class="text-3xl text-slate-500">のではありません。</p>
+      </div>
+
+      <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-12 text-center shadow-md max-w-4xl w-full">
+        <h3 class="text-5xl font-bold text-teal-900 leading-snug">
+          「インパクト最大化のための構造」<br>
+          <span class="text-4xl text-teal-700 mt-4 block">として、信頼が機能する</span>
+        </h3>
+        <p class="text-2xl text-teal-600 mt-8 font-medium">という仮説に基づくアプローチです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- スライド 4: 構造的課題への応答 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">精神論ではなく、構造的課題への応答</h2>
+    </div>
+    <div class="mt-8">
+      <p class="text-3xl text-slate-600 mb-10 font-bold">米国でこの潮流が生まれた背景には、明確な構造的課題があります。</p>
+      <ul class="custom-list">
+        <li><strong>権力の非対称性</strong>
+          <ul>
+            <li>助成先は資金提供者の一挙一動に敏感でなければならないが、逆は成り立たない</li>
+          </ul>
+        </li>
+        <li><strong>報告要件による過大な負担</strong>
+          <ul>
+            <li>助成報告の「有用性」はCEP調査で最低評価。期間全体で30時間以上を費やす</li>
+          </ul>
+        </li>
+        <li><strong>近年のパラダイム転換</strong>
+          <ul>
+            <li>2020年以降、報告緩和や一般運営支援へ移行。（2024年の米国GOS比率は40.3%に到達）</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- スライド 5: エビデンス概観と限界 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">代表的なエビデンスの概観</h2>
+    </div>
+    <div class="cards-container mt-4">
+      <div class="card flex flex-col">
+        <h3 class="text-2xl font-bold text-teal-800 mb-3 pb-2 border-b">CEP調査<br><span class="text-lg font-normal">"Relationships Matter" (2017)</span></h3>
+        <p class="text-xl text-slate-700 flex-grow">助成先2万件・財団80以上を対象とした調査。<br><br>助成者と助成先の<strong>強い関係が目標達成を直接的に促進する</strong>。</p>
+      </div>
+      <div class="card flex flex-col">
+        <h3 class="text-2xl font-bold text-teal-800 mb-3 pb-2 border-b">MacKenzie Scott<br><span class="text-lg font-normal">3年間の縦断研究 (2025)</span></h3>
+        <p class="text-xl text-slate-700 flex-grow">大規模使途不指定助成を受けた団体の<strong>約90%が長期的財務持続性の強化を報告</strong>。比較団体の2倍の準備金。「財務の崖」を懸念する団体は10%未満。</p>
+      </div>
+      <div class="card flex flex-col">
+        <h3 class="text-2xl font-bold text-teal-800 mb-3 pb-2 border-b">Bridgespan<br><span class="text-lg font-normal">レポート (2024)</span></h3>
+        <p class="text-xl text-slate-700 flex-grow">信頼を「オン/オフのスイッチではなく<strong>ディマースイッチ（調光器）</strong>」として再定義。<br><br>TBPと戦略的フィランソロピーは共存しうる。</p>
+      </div>
+    </div>
+    <div class="mt-8 p-4 bg-slate-100 border-l-4 border-slate-400 rounded">
+      <p class="text-xl text-slate-700 font-bold mb-1"><i class="fas fa-exclamation-triangle text-amber-500 mr-2"></i>米国でも賛否がある（単純移植の限界）</p>
+      <p class="text-lg text-slate-600">TBP的アプローチを10年実践しても目標に届かなかった反省例もあります。日米では寄付市場の規模や第三者評価の環境が異なるため、単純移植で同じ効果が得られるとは限りません。</p>
+    </div>
+  </section>
+
+  <!-- スライド 6: SSIR論文の視座 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">「偽の二項対立」を超えて</h2>
+    </div>
+    <div class="flex flex-col justify-center h-full pb-20 max-w-5xl mx-auto">
+      <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm mb-12">
+        <p class="text-4xl text-center text-slate-700 font-bold">
+          <i class="fas fa-times text-red-500 mr-3"></i>
+          戦略的フィランソロピー <span class="text-slate-400 mx-4">vs</span> トラスト・ベースド
+        </p>
+      </div>
+
+      <ul class="custom-list">
+        <li>この２つの違いは<strong>「エビデンスを重視するかどうか」ではありません。</strong></li>
+        <li class="mt-8">両者の本質的な違いは、設計思想にあります：
+          <div class="mt-8 p-6 bg-teal-50 border-l-8 border-teal-500 rounded-r-lg">
+            <p class="text-4xl font-bold text-teal-900 leading-snug">
+              「誰の時間・専門性・経験に<br>価値を置くか」
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- スライド 7: 4つの因果経路図 (全体) -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800 mb-4">「信頼」が「インパクト」を生む4つの経路</h2>
+      <p class="text-2xl font-bold text-teal-700 bg-teal-50 px-4 py-2 rounded inline-block">意思決定権と専門性の所在を一致させる</p>
+    </div>
+    <div class="flex flex-col gap-2 mt-4">
+      <div class="path-row">
+        <div class="path-label">経路 1</div>
+        <div class="path-box">使途制限のない資金</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">方針転換能力</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">環境適応</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+      </div>
+      <div class="path-row">
+        <div class="path-label">経路 2</div>
+        <div class="path-box">信頼関係</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">率直な情報共有</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">資金提供者の適切な対応</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+      </div>
+      <div class="path-row">
+        <div class="path-label">経路 3</div>
+        <div class="path-box">管理負担軽減</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">リソース再配分</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">プログラム実施への集中</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+      </div>
+      <div class="path-row">
+        <div class="path-label">経路 4</div>
+        <div class="path-box" style="font-size: 1.4rem;">助成先の専門性への信頼</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">小規模財団のスケール</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box">複数課題への対応</div>
+        <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+        <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- スライド 8: 経路1 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">経路1：使途制限のない資金からインパクトへ</h2>
+    </div>
+    <div class="path-row mb-6">
+      <div class="path-box">使途制限のない資金</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box">方針転換能力</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box">環境適応</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+    </div>
+    <ul class="custom-list mt-8">
+      <li><strong>米国事例（MacKenzie Scottの調査）：</strong>
+        <ul>
+          <li>大規模な使途不指定助成を受けたNPOリーダーの<strong>約90%が長期的な財務持続性の強化</strong>を報告。「財務の崖」を懸念する団体は10%未満にとどまった。</li>
+        </ul>
+      </li>
+      <li><strong>限界・批判（Call of Duty Endowmentの事例）：</strong>
+        <ul>
+          <li>TBP的アプローチを10年実施するも、退役軍人の雇用目標に届かなかった。KPIと成果測定を再導入することで改善した反省事例も存在する。</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
+      <p class="text-3xl font-bold text-slate-800">
+        <span class="text-amber-500 mr-2">Q.</span>
+        使途不指定は万能ではないが、使途制限が「現場の合理的な判断を縛る」ケースはないか？
+      </p>
+    </div>
+  </section>
+
+  <!-- スライド 9: 経路2 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">経路2：信頼関係からインパクトへ</h2>
+    </div>
+    <div class="path-row mb-6">
+      <div class="path-box">信頼関係</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box">率直な情報共有</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box" style="font-size: 1.4rem;">資金提供者の適切な対応</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+    </div>
+    <ul class="custom-list mt-8">
+      <li><strong>CEP調査：</strong>
+        <ul>
+          <li>関係性を最も強く予測する要因は、助成先が<strong>「助成者は自組織の目標と戦略を理解している」</strong>と感じているかどうかだった。</li>
+        </ul>
+      </li>
+      <li><strong>Satterberg財団の事例：</strong>
+        <ul>
+          <li>報告書の代わりに「本物の関係」を重視。外部評価では、<strong>「脆弱になれる環境（資金を失う恐れなく正直に話せる関係性）」が最も価値ある支援</strong>と評価された。</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
+      <p class="text-3xl font-bold text-slate-800">
+        <span class="text-amber-500 mr-2">Q.</span>
+        助成先が「うまくいっていません」と正直に言える関係性は、どうすれば生み出せるのか？
+      </p>
+    </div>
+  </section>
+
+  <!-- スライド 10: 経路3 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">経路3：管理負担軽減からインパクトへ</h2>
+    </div>
+    <div class="path-row mb-6">
+      <div class="path-box">管理負担軽減</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box">リソース再配分</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box" style="font-size: 1.4rem;">プログラム実施への集中</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+    </div>
+    <ul class="custom-list mt-6">
+      <li><strong>報告のジレンマ（CEP調査）：</strong>
+        <ul>
+          <li>助成先は年間約8時間/件・期間全体で30時間以上を報告に費やすが、「組織強化への有用性」は最低評価。</li>
+        </ul>
+      </li>
+      <li><strong>負担軽減に向けた米国の工夫：</strong>
+        <ul>
+          <li><strong>Women's Foundation of Minnesota:</strong> 助成先が自ら成功を定義する「オプション式報告書」を導入。</li>
+          <li><strong>Mighty Arrow Family Foundation:</strong> 3つの助成者が1つのフォーマットを共有する「複数助成者共同報告」を実践。</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="mt-6 bg-white border-l-8 border-amber-400 p-5 rounded-r shadow-sm">
+      <p class="text-3xl font-bold text-slate-800">
+        <span class="text-amber-500 mr-2">Q.</span>
+        報告のための作業が、本来の活動を圧迫していないか？
+      </p>
+    </div>
+  </section>
+
+  <!-- スライド 11: 経路4 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">経路4：助成先の専門性への信頼</h2>
+    </div>
+    <div class="path-row mb-6">
+      <div class="path-box" style="font-size: 1.3rem;">助成先の専門性への信頼</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box">小規模財団のスケール</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box">複数課題への対応</div>
+      <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
+      <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
+    </div>
+    <ul class="custom-list mt-4">
+      <li><strong>専門性の外部化：</strong>
+        <ul>
+          <li>米国の財団スタッフ中央値は4名。「課題に最も近い当事者が最良の解決策を持つ」という前提のもと、現場に委ねるアプローチがスケールを生む。</li>
+        </ul>
+      </li>
+      <li><strong>米国事例：</strong>
+        <ul>
+          <li><strong>Women's Fund of Central Indiana:</strong> TBPパイロットを開始。初年度は申請不要とし、代表者向けウェルネス支援も提供。</li>
+          <li><strong>Pretty Passionate Hands:</strong> 10代母親の支援において、当事者主導のリーダーシップを信頼し、専門性を委ねる。</li>
+          <li><strong>Jane Bancroft Robinson財団:</strong> 住民との対話を経て、受益者を「解決策の設計者」として位置づけた。</li>
+        </ul>
+      </li>
+    </ul>
+    <div class="mt-6 bg-slate-200 p-4 rounded-lg flex items-center">
+      <i class="fas fa-info-circle text-teal-600 text-2xl mr-4"></i>
+      <p class="text-xl text-slate-700 font-bold">【グラデーションの存在】 報告書の簡素化といった漸進的な改善から、意思決定構造そのものをフラットにする根本的な変革まで、多様なアプローチがある。</p>
+    </div>
+  </section>
+
+  <!-- スライド 12: チャット募集 -->
+  <section class="slide flex items-center justify-center text-center">
+    <div class="max-w-4xl w-full bg-white p-16 rounded-2xl shadow-lg border border-slate-200">
+      <i class="far fa-comments text-7xl text-teal-500 mb-8"></i>
+      <h2 class="text-5xl font-bold text-slate-800 mb-8">チャットで声をお寄せください</h2>
+      <div class="text-3xl text-slate-600 leading-relaxed text-left inline-block">
+        <p class="mb-4">💬 4つの経路の中で、特に気になったものは？</p>
+        <p>💬 日本の現場で思い当たる経験や、素朴な疑問など</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- スライド 13: 統合 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">4経路を貫く原則と、共通の視座</h2>
+    </div>
+    <div class="flex flex-col h-full gap-8">
+      <div class="bg-teal-50 p-8 rounded-xl border border-teal-200 flex-1 flex flex-col justify-center">
+        <h3 class="text-3xl font-bold text-teal-800 mb-4">中核の原則</h3>
+        <p class="text-4xl font-bold text-slate-800 leading-snug">
+          「意思決定権」と「専門性」の<br>所在を一致させること。
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm flex-1 flex flex-col justify-center">
+        <h3 class="text-3xl font-bold text-slate-700 mb-4">共通の視座</h3>
+        <p class="text-2xl text-slate-600 mb-4">推進する側も、批判的な視点を持つ側も、最終的な目的は同じです。</p>
+        <p class="text-3xl font-bold text-slate-800 border-b-4 border-amber-300 inline-block self-start pb-2">
+          「より良い助成と、より良い活動（社会へのインパクト）」をどう実現するか
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- スライド 14: 注釈 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">【注釈】米国の知恵を日本でどう活かすか</h2>
+    </div>
+    <ul class="custom-list mt-8">
+      <li><strong>単純移植の限界</strong>
+        <ul>
+          <li>法制度・税制・フィランソロピーの歴史的背景が異なります。</li>
+        </ul>
+      </li>
+      <li class="mt-12"><strong>多様な議論の広がり</strong>
+        <ul>
+          <li>米国内でも定義は常に進化しています。（「答え」ではなく「問い」）</li>
+          <li>アジアなどでは独自の「ハイブリッド型」の議論も生まれています。</li>
+        </ul>
+      </li>
+      <li class="mt-12"><strong>日本の現場への「翻訳」</strong>
+        <ul>
+          <li>TBPを丸ごと輸入するのではなく、日本の実態に即して「翻訳」し、自分たちの現場での「最初の一歩」を考えることが重要です。</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <!-- スライド 15: クロージング -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">今日のまとめと第3回のご案内</h2>
+    </div>
+    <div class="flex gap-10 h-full">
+      <div class="w-1/2 flex flex-col">
+        <h3 class="text-3xl font-bold text-teal-700 mb-6 border-b pb-2">本日のキーワード</h3>
+        <ul class="custom-list mb-auto">
+          <li>構造的課題への応答</li>
+          <li>偽の二項対立の打破</li>
+          <li>意思決定と専門性の一致</li>
+        </ul>
+        <div class="mt-8 bg-teal-50 p-6 rounded-lg border border-teal-200">
+          <p class="text-2xl font-bold text-teal-900 mb-2">次回予告（第3回）</p>
+          <p class="text-xl text-slate-700">今回の4経路を具体化する<strong>「6つの実践」の詳細とその難しさ</strong>に踏み込み、信頼関係を少しずつ高める方法を考えます。</p>
+        </div>
+      </div>
+
+      <div class="w-1/2 bg-slate-50 p-8 rounded-xl border border-slate-300 flex flex-col">
+        <h3 class="text-3xl font-bold text-slate-600 mb-6 border-b-2 border-slate-200 pb-2">事務局よりご案内</h3>
+        <div class="flex-grow flex flex-col gap-6 text-xl text-slate-700">
+          <div class="bg-white p-4 rounded shadow-sm">
+            <p class="font-bold text-teal-700 mb-1"><i class="fas fa-clipboard-list mr-2"></i>アンケートへのご協力のお願い</p>
+            <p class="text-lg">今後のより良い場づくりのため、チャット欄のURLよりご回答をお願いいたします。</p>
+          </div>
+          <div class="bg-white p-4 rounded shadow-sm">
+            <p class="font-bold text-teal-700 mb-1"><i class="fab fa-youtube text-red-500 mr-2"></i>録画の公開について</p>
+            <p class="text-lg">本日のセミナー録画は、後日YouTubeにて公開予定です。</p>
+          </div>
+          <div class="bg-white p-4 rounded shadow-sm flex items-center justify-between">
+            <div>
+              <p class="font-bold text-teal-700 mb-1"><i class="fas fa-calendar-alt mr-2"></i>第3回のお申し込み</p>
+              <p class="text-lg mb-2">下記Peatixページよりお申し込みください。<br><span class="text-blue-500 underline text-base break-all">https://tbpj-seminar202603.peatix.com/view</span></p>
+            </div>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://tbpj-seminar202603.peatix.com/view" alt="第3回申込QRコード" class="w-24 h-24 border border-slate-200 rounded ml-4 flex-shrink-0">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const progressEl = document.getElementById('progress');
+    const globalLogo = document.getElementById('global-logo');
+
+    function showSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+      currentSlide = index;
+      progressEl.textContent = `${currentSlide + 1} / ${slides.length}`;
+      if (globalLogo) {
+        globalLogo.style.display = currentSlide === 0 ? 'none' : 'block';
+      }
+    }
+
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+      else if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    showSlide(0);
+  </script>
+</body>
+</html>
