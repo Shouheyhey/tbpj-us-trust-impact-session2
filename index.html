@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 created_by: cursor
 created_at: 2026-04-03
 project: TBP-J
-task: public web slides session2 US trust impact (GitHub Pages ready)
+task: session2 slides — SSIR-J ref, 4-path overview layout, path copy refresh, closing keywords
 -->
 <html lang="ja">
 <head>
@@ -193,6 +193,56 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
       display: flex;
       align-items: center;
     }
+    /* 4経路一覧（1画面の約2/3を経路図が占める） */
+    .slide-path-overview {
+      padding: 2rem 4rem 5.75rem;
+    }
+    .slide-path-overview .slide-header {
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      flex-shrink: 0;
+    }
+    .slide-path-overview .slide-header h2 {
+      font-size: clamp(1.5rem, 2.2vw, 2.1rem) !important;
+      line-height: 1.2;
+    }
+    .slide-path-overview .slide-header p.text-2xl {
+      font-size: 1.05rem !important;
+    }
+    .slide-path-overview .paths-fill {
+      flex: 1 1 66%;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-top: 0.25rem;
+    }
+    .slide-path-overview .path-row {
+      flex: 1 1 0;
+      min-height: 0;
+      padding: 0.55rem 0.65rem;
+      margin-bottom: 0;
+    }
+    .slide-path-overview .path-box {
+      font-size: clamp(0.88rem, 1.15vw, 1.28rem) !important;
+      padding: 0.45rem 0.5rem;
+      line-height: 1.2;
+    }
+    .slide-path-overview .path-arrow {
+      font-size: clamp(1.2rem, 1.8vw, 1.85rem);
+      margin: 0 0.3rem;
+    }
+    .slide-path-overview .path-label {
+      width: 5rem;
+      font-size: 1rem;
+    }
+    .ssir-summary-box {
+      background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      border: 2px solid #0d9488;
+      border-radius: 0.75rem;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 14px rgb(13 148 136 / 0.12);
+    }
     .cards-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -249,7 +299,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
 
   <img src="assets/trust-based-philanthropy-japan-logo.png" id="global-logo" style="position: fixed; top: 30px; right: 50px; height: 60px; z-index: 100; display: none; object-fit: contain;" alt="Trust-Based Philanthropy Japan のロゴ" onerror="this.style.display='none'">
 
-  <div class="progress" id="progress">1 / 15</div>
+  <div class="progress" id="progress">1 / 16</div>
   <div class="controls">
     <button class="ctrl-btn" onclick="toggleFullScreen()" title="フルスクリーン切り替え">
       <i class="fas fa-expand"></i>
@@ -288,9 +338,9 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
       <div class="w-1/2">
         <h3 class="text-3xl font-bold text-teal-700 mb-6 border-l-4 border-teal-500 pl-4">本日の流れ</h3>
         <ul class="custom-list mt-8">
-          <li>背景とエビデンスの全体像</li>
-          <li>4つの経路（原因からインパクトへ）</li>
-          <li>日本の文脈への接続と統合</li>
+          <li>米国でトラスト・ベースド・フィランソロピー（TBP）が生まれた背景</li>
+          <li>TBPの戦略的価値と米国の事例共有</li>
+          <li>米国の知恵を日本でどう活かすか？</li>
         </ul>
       </div>
       <div class="w-1/2 bg-white p-8 rounded-xl border border-slate-200 shadow-sm">
@@ -341,7 +391,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
         </li>
         <li><strong>報告要件による過大な負担</strong>
           <ul>
-            <li>助成報告の「有用性」はCEP調査で最低評価。期間全体で30時間以上を費やす</li>
+            <li>助成報告の「有用性」は、センター・フォー・エフェクティブ・フィランソロピー（Center for Effective Philanthropy, CEP）の調査で最低評価。期間全体で30時間以上を費やす</li>
           </ul>
         </li>
         <li><strong>近年のパラダイム転換</strong>
@@ -360,7 +410,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
     <div class="cards-container mt-4">
       <div class="card flex flex-col">
-        <h3 class="text-2xl font-bold text-teal-800 mb-3 pb-2 border-b">CEP調査<br><span class="text-lg font-normal">"Relationships Matter" (2017)</span></h3>
+        <h3 class="text-2xl font-bold text-teal-800 mb-3 pb-2 border-b">CEP（センター・フォー・エフェクティブ・フィランソロピー）調査<br><span class="text-lg font-normal">"Relationships Matter" (2017)</span></h3>
         <p class="text-xl text-slate-700 flex-grow">助成先2万件・財団80以上を対象とした調査。<br><br>助成者と助成先の<strong>強い関係が目標達成を直接的に促進する</strong>。</p>
       </div>
       <div class="card flex flex-col">
@@ -404,26 +454,56 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 7: 4つの因果経路図 (全体) -->
-  <section class="slide slide-compact">
+  <!-- スライド 7: SSIR-J 参照論文 -->
+  <section class="slide">
+    <div class="slide-header">
+      <h2 class="text-5xl font-bold text-slate-800">参照：SSIR-J 記事</h2>
+    </div>
+    <div class="max-w-5xl mt-4 space-y-5">
+      <div>
+        <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">タイトル</p>
+        <p class="text-3xl font-bold text-slate-800 leading-snug">トラスト・ベースド・フィランソロピーの戦略的価値</p>
+      </div>
+      <div>
+        <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">著者</p>
+        <p class="text-xl text-slate-700">ステイシー・ファエラ（Stacey Faella）、ライアン・ロバーソン（Ryan Roberson）</p>
+      </div>
+      <div class="ssir-summary-box">
+        <p class="text-sm font-bold text-teal-800 uppercase tracking-wide mb-3">サマリー（本日の議論の土台）</p>
+        <p class="text-2xl font-bold text-slate-900 leading-relaxed">
+          信頼に基づく（Trust-based）アプローチを特徴づける中核的な実践は、<span class="text-teal-800">複数の経路を通じて、資源効率性の向上と非常に大きなインパクトに繋がる</span>。
+        </p>
+        <p class="text-lg text-slate-700 mt-4 leading-relaxed">
+          「戦略的」と「トラスト・ベースド」の対立は誤解であり、違いはエビデンスの有無ではなく<strong>誰の時間・専門性・経験に価値を置くか</strong>にある、という立場から、4つの因果経路が整理されている。
+        </p>
+      </div>
+      <p class="text-lg text-slate-600 break-all">
+        <i class="fas fa-link text-teal-600 mr-2"></i>
+        <a href="https://ssir-j.org/trust-based-philanthropy-strategic/" class="text-teal-700 underline font-medium" target="_blank" rel="noopener noreferrer">https://ssir-j.org/trust-based-philanthropy-strategic/</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- スライド 8: 4つの因果経路図 (全体) -->
+  <section class="slide slide-path-overview">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800 mb-1">「信頼」が「インパクト」を生む4つの経路</h2>
       <p class="text-2xl font-bold text-teal-700 bg-teal-50 px-4 py-2 rounded inline-block">意思決定権と専門性の所在を一致させる</p>
     </div>
-    <div class="slide-compact-main flex flex-col gap-1 mt-1">
+    <div class="paths-fill">
       <div class="path-row">
         <div class="path-label">経路 1</div>
         <div class="path-box">使途制限のない資金</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-        <div class="path-box">方針転換能力</div>
+        <div class="path-box">現場リーダーの方針転換能力</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-        <div class="path-box">環境適応</div>
+        <div class="path-box">環境変化への適応</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
         <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
       </div>
       <div class="path-row">
         <div class="path-label">経路 2</div>
-        <div class="path-box">信頼関係</div>
+        <div class="path-box">信頼に基づく関係性</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
         <div class="path-box">率直な情報共有</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -433,9 +513,9 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
       </div>
       <div class="path-row">
         <div class="path-label">経路 3</div>
-        <div class="path-box">管理負担軽減</div>
+        <div class="path-box">管理負担の軽減</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-        <div class="path-box">リソース再配分</div>
+        <div class="path-box">組織リソースの再配分</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
         <div class="path-box">プログラム実施への集中</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -443,9 +523,9 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
       </div>
       <div class="path-row">
         <div class="path-label">経路 4</div>
-        <div class="path-box" style="font-size: 1.4rem;">助成先の専門性への信頼</div>
+        <div class="path-box">助成先の専門性への信頼</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-        <div class="path-box">小規模財団のスケール</div>
+        <div class="path-box">小規模財団のスケーラビリティ</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
         <div class="path-box">複数課題への対応</div>
         <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -454,7 +534,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 8: 経路1 -->
+  <!-- スライド 9: 経路1 -->
   <section class="slide slide-compact">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路1：使途制限のない資金からインパクトへ</h2>
@@ -463,23 +543,17 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     <div class="path-row mb-6">
       <div class="path-box">使途制限のない資金</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-      <div class="path-box">方針転換能力</div>
+      <div class="path-box">現場リーダーの方針転換能力</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-      <div class="path-box">環境適応</div>
+      <div class="path-box">環境変化への適応</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
     <ul class="custom-list mt-8">
-      <li><strong>米国事例（MacKenzie Scottの調査）：</strong>
-        <ul>
-          <li>大規模な使途不指定助成を受けたNPOリーダーの<strong>約90%が長期的な財務持続性の強化</strong>を報告。「財務の崖」を懸念する団体は10%未満にとどまった。</li>
-        </ul>
-      </li>
-      <li><strong>限界・批判（Call of Duty Endowmentの事例）：</strong>
-        <ul>
-          <li>TBP的アプローチを10年実施するも、退役軍人の雇用目標に届かなかった。KPIと成果測定を再導入することで改善した反省事例も存在する。</li>
-        </ul>
-      </li>
+      <li><strong>論点：</strong>世界は予測不能であり、方針転換は「例外」ではなく<strong>常態</strong>。使途制限付き資金は、新たなエビデンスが出ても<strong>当初計画に固執させる</strong>という構造的な非合理を生みやすい。</li>
+      <li><strong>典型例（帰還市民向けツールキット）：</strong>対象者にネット環境がないと判明しても、契約に縛られ<strong>書面配布を続けざるを得なかった</strong>というジレンマ。</li>
+      <li><strong>対比（パンデミック時のオンライン転換）：</strong>使途に余白があったからこそ迅速に切り替えられ、大きなインパクトに。＝<strong>裁量を現場に渡すこと</strong>が、エビデンスに基づく意思決定を支える。</li>
+      <li><strong>補足エビデンス：</strong>MacKenzie Scott調査では使途不指定助成先の<strong>約90%</strong>が財務持続性の強化を報告。一方、Call of Duty Endowmentは長年のTBP的運用でも目標未達—<strong>万能ではない</strong>ことも併記。</li>
     </ul>
     <div class="path-footer-box mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
       <p class="text-3xl font-bold text-slate-800">
@@ -490,14 +564,14 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 9: 経路2 -->
+  <!-- スライド 10: 経路2 -->
   <section class="slide slide-compact">
     <div class="slide-header">
-      <h2 class="text-5xl font-bold text-slate-800">経路2：信頼関係からインパクトへ</h2>
+      <h2 class="text-5xl font-bold text-slate-800">経路2：信頼に基づく関係性からインパクトへ</h2>
     </div>
     <div class="slide-compact-main">
     <div class="path-row mb-6">
-      <div class="path-box">信頼関係</div>
+      <div class="path-box">信頼に基づく関係性</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box">率直な情報共有</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -506,16 +580,10 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
     <ul class="custom-list mt-8">
-      <li><strong>CEP調査：</strong>
-        <ul>
-          <li>関係性を最も強く予測する要因は、助成先が<strong>「助成者は自組織の目標と戦略を理解している」</strong>と感じているかどうかだった。</li>
-        </ul>
-      </li>
-      <li><strong>Satterberg財団の事例：</strong>
-        <ul>
-          <li>報告書の代わりに「本物の関係」を重視。外部評価では、<strong>「脆弱になれる環境（資金を失う恐れなく正直に話せる関係性）」が最も価値ある支援</strong>と評価された。</li>
-        </ul>
-      </li>
+      <li><strong>論点：</strong>信頼が薄いと助成先は失敗やリスクを隠しがち。情報が届かなければ、資金提供者は<strong>的確な支援ができない</strong>。</li>
+      <li><strong>逆に信頼があれば：</strong>最高裁対応やセキュリティ脅威など、<strong>計画外の緊急ニーズ</strong>を率直に共有でき、迅速な対応助成や横断的な研修など「申請書にない支援」が可能になる。</li>
+      <li><strong>CEP調査の示唆：</strong>関係性の強さを最もよく説明するのは、助成先が<strong>「助成者は自組織の目標と戦略を理解している」</strong>と感じるかどうか。</li>
+      <li><strong>Satterberg財団：</strong>「脆弱になれる」関係—<strong>資金を失う恐れなく正直に話せる環境</strong>が、支援の中核価値として評価された。</li>
     </ul>
     <div class="path-footer-box mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
       <p class="text-3xl font-bold text-slate-800">
@@ -526,33 +594,26 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 10: 経路3 -->
+  <!-- スライド 11: 経路3 -->
   <section class="slide slide-compact">
     <div class="slide-header">
-      <h2 class="text-5xl font-bold text-slate-800">経路3：管理負担軽減からインパクトへ</h2>
+      <h2 class="text-5xl font-bold text-slate-800">経路3：管理負担の軽減からインパクトへ</h2>
     </div>
     <div class="slide-compact-main">
     <div class="path-row mb-6">
-      <div class="path-box">管理負担軽減</div>
+      <div class="path-box">管理負担の軽減</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-      <div class="path-box">リソース再配分</div>
+      <div class="path-box">組織リソースの再配分</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box" style="font-size: 1.4rem;">プログラム実施への集中</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
     <ul class="custom-list mt-6">
-      <li><strong>報告のジレンマ（CEP調査）：</strong>
-        <ul>
-          <li>助成先は年間約8時間/件・期間全体で30時間以上を報告に費やすが、「組織強化への有用性」は最低評価。</li>
-        </ul>
-      </li>
-      <li><strong>負担軽減に向けた米国の工夫：</strong>
-        <ul>
-          <li><strong>Women's Foundation of Minnesota:</strong> 助成先が自ら成功を定義する「オプション式報告書」を導入。</li>
-          <li><strong>Mighty Arrow Family Foundation:</strong> 3つの助成者が1つのフォーマットを共有する「複数助成者共同報告」を実践。</li>
-        </ul>
-      </li>
+      <li><strong>論点：</strong>使途制限付き助成と個別報告は、人的資源を<strong>管理業務に吸収</strong>し、プログラムから奪う。</li>
+      <li><strong>構造的歪み（若者支援の例）：</strong>報告しやすい定量指標（指導時間、テストスコア等）を優先せざるを得ず、<strong>関係性や社会情動スキルなど質的サービスが後回し</strong>に—いわゆる測定可能性バイアス。</li>
+      <li><strong>CEP調査：</strong>報告に多くの時間をかける一方、「組織強化への有用性」は最低評価—負担と効用のミスマッチ。</li>
+      <li><strong>米国の工夫：</strong>オプション式報告、複数助成者の共同フォーマットなど、<strong>事務負担を下げて現場にリソースを戻す</strong>設計。リーダーの燃え尽き防止にもつながる。</li>
     </ul>
     <div class="path-footer-box mt-6 bg-white border-l-8 border-amber-400 p-5 rounded-r shadow-sm">
       <p class="text-3xl font-bold text-slate-800">
@@ -563,7 +624,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 11: 経路4 -->
+  <!-- スライド 12: 経路4 -->
   <section class="slide slide-compact">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路4：助成先の専門性への信頼</h2>
@@ -572,25 +633,16 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     <div class="path-row mb-6">
       <div class="path-box" style="font-size: 1.3rem;">助成先の専門性への信頼</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
-      <div class="path-box">小規模財団のスケール</div>
+      <div class="path-box">小規模財団のスケーラビリティ</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box">複数課題への対応</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
       <div class="path-box bg-teal-100 border-teal-300 text-teal-900">インパクト</div>
     </div>
     <ul class="custom-list mt-4">
-      <li><strong>専門性の外部化：</strong>
-        <ul>
-          <li>米国の財団スタッフ中央値は4名。「課題に最も近い当事者が最良の解決策を持つ」という前提のもと、現場に委ねるアプローチがスケールを生む。</li>
-        </ul>
-      </li>
-      <li><strong>米国事例：</strong>
-        <ul>
-          <li><strong>Women's Fund of Central Indiana:</strong> TBPパイロットを開始。初年度は申請不要とし、代表者向けウェルネス支援も提供。</li>
-          <li><strong>Pretty Passionate Hands:</strong> 10代母親の支援において、当事者主導のリーダーシップを信頼し、専門性を委ねる。</li>
-          <li><strong>Jane Bancroft Robinson財団:</strong> 住民との対話を経て、受益者を「解決策の設計者」として位置づけた。</li>
-        </ul>
-      </li>
+      <li><strong>論点：</strong>米国の助成財団スタッフ数の中央値は<strong>わずか4名</strong>。すべての分野の専門性を内製するのは非現実的。</li>
+      <li><strong>前提の転換：</strong>「課題に最も近い当事者が最良の解決策を持つ」と認め、<strong>専門性の所在を助成先側に置く</strong>。財団は分野別に人を増やさず、複数領域に戦略的に関与できる＝<strong>専門性の外部化による効率</strong>。</li>
+      <li><strong>米国事例（短縮）：</strong>Women's Fund of Central Indiana（申請不要・ウェルネス支援）、Pretty Passionate Hands（当事者主導を信頼）、Jane Bancroft Robinson財団（受益者を解決策の設計者として位置づけ）。</li>
     </ul>
     <div class="path-note-bar mt-6 bg-slate-200 p-4 rounded-lg flex items-center">
       <i class="fas fa-info-circle text-teal-600 text-xl mr-3 flex-shrink-0"></i>
@@ -599,7 +651,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 12: チャット募集 -->
+  <!-- スライド 13: チャット募集 -->
   <section class="slide flex items-center justify-center text-center">
     <div class="max-w-4xl w-full bg-white p-16 rounded-2xl shadow-lg border border-slate-200">
       <i class="far fa-comments text-7xl text-teal-500 mb-8"></i>
@@ -611,7 +663,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 13: 統合 -->
+  <!-- スライド 14: 統合 -->
   <section class="slide">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">4経路を貫く原則と、共通の視座</h2>
@@ -633,10 +685,10 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </div>
   </section>
 
-  <!-- スライド 14: 注釈 -->
+  <!-- スライド 15: 日本への示唆 -->
   <section class="slide">
     <div class="slide-header">
-      <h2 class="text-5xl font-bold text-slate-800">【注釈】米国の知恵を日本でどう活かすか</h2>
+      <h2 class="text-5xl font-bold text-slate-800">米国の知恵を日本でどう活かすか</h2>
     </div>
     <ul class="custom-list mt-8">
       <li><strong>単純移植の限界</strong>
@@ -658,7 +710,7 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
     </ul>
   </section>
 
-  <!-- スライド 15: クロージング -->
+  <!-- スライド 16: クロージング -->
   <section class="slide">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">今日のまとめと第3回のご案内</h2>
@@ -667,9 +719,8 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
       <div class="w-1/2 flex flex-col">
         <h3 class="text-3xl font-bold text-teal-700 mb-6 border-b pb-2">本日のキーワード</h3>
         <ul class="custom-list mb-auto">
-          <li>構造的課題への応答</li>
-          <li>偽の二項対立の打破</li>
-          <li>意思決定と専門性の一致</li>
+          <li>TBPはインパクト最大化を目指した助成手法であること</li>
+          <li>誰の時間・専門性・経験に価値を置くか</li>
         </ul>
         <div class="mt-8 bg-teal-50 p-6 rounded-lg border border-teal-200">
           <p class="text-2xl font-bold text-teal-900 mb-2">次回予告（第3回）</p>
