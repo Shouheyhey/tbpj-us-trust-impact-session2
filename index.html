@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
 created_by: cursor
 created_at: 2026-04-03
@@ -24,11 +24,84 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
       display: none !important;
       height: 100vh;
       width: 100vw;
-      padding: 4rem 6rem;
+      padding: 4rem 6rem 5.75rem;
       box-sizing: border-box;
       flex-direction: column;
       animation: fadeIn 0.4s ease-out;
       position: relative;
+    }
+    .slide-compact {
+      padding: 2.25rem 4rem 5.75rem;
+    }
+    .slide-compact .slide-header {
+      margin-bottom: 0.65rem;
+      padding-bottom: 0.45rem;
+      flex-shrink: 0;
+    }
+    .slide-compact .slide-header h2 {
+      font-size: clamp(1.45rem, 2.2vw, 2rem) !important;
+      line-height: 1.2;
+    }
+    .slide-compact .slide-header p.text-2xl {
+      font-size: 1rem !important;
+      padding: 0.3rem 0.55rem !important;
+      margin-top: 0.25rem !important;
+    }
+    .slide-compact .slide-compact-main {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    .slide-compact .path-row {
+      min-height: 0;
+      padding: 0.35rem 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .slide-compact .path-row.mb-6 {
+      margin-bottom: 0.45rem !important;
+    }
+    .slide-compact .path-box {
+      font-size: 1.05rem !important;
+      padding: 0.35rem 0.45rem;
+      line-height: 1.25;
+    }
+    .slide-compact .path-arrow {
+      font-size: 1.25rem;
+      margin: 0 0.2rem;
+    }
+    .slide-compact .path-label {
+      width: 4.5rem;
+      font-size: 0.95rem;
+    }
+    .slide-compact ul.custom-list {
+      margin-top: 0.25rem !important;
+    }
+    .slide-compact ul.custom-list > li {
+      font-size: 1.2rem;
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+    }
+    .slide-compact ul.custom-list ul > li {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+    .slide-compact .path-footer-box {
+      margin-top: 0.45rem !important;
+      padding: 0.55rem 0.75rem !important;
+    }
+    .slide-compact .path-footer-box p {
+      font-size: 1.15rem !important;
+      line-height: 1.35;
+    }
+    .slide-compact .path-note-bar {
+      margin-top: 0.4rem !important;
+      padding: 0.45rem 0.65rem !important;
+    }
+    .slide-compact .path-note-bar p {
+      font-size: 0.95rem !important;
+      line-height: 1.3;
     }
     .slide.active {
       display: flex !important;
@@ -225,7 +298,6 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
         <ul class="custom-list">
           <li>私たち3名も「先生」ではなく<strong>「探求者」</strong>です</li>
           <li>間違いを正すのではなく、共に<strong>「より良く」していく場</strong>にしましょう</li>
-          <li>「ではの神」にならず、特定組織への批判は行いません</li>
         </ul>
       </div>
     </div>
@@ -333,12 +405,12 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
   </section>
 
   <!-- スライド 7: 4つの因果経路図 (全体) -->
-  <section class="slide">
+  <section class="slide slide-compact">
     <div class="slide-header">
-      <h2 class="text-5xl font-bold text-slate-800 mb-4">「信頼」が「インパクト」を生む4つの経路</h2>
+      <h2 class="text-5xl font-bold text-slate-800 mb-1">「信頼」が「インパクト」を生む4つの経路</h2>
       <p class="text-2xl font-bold text-teal-700 bg-teal-50 px-4 py-2 rounded inline-block">意思決定権と専門性の所在を一致させる</p>
     </div>
-    <div class="flex flex-col gap-2 mt-4">
+    <div class="slide-compact-main flex flex-col gap-1 mt-1">
       <div class="path-row">
         <div class="path-label">経路 1</div>
         <div class="path-box">使途制限のない資金</div>
@@ -383,10 +455,11 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
   </section>
 
   <!-- スライド 8: 経路1 -->
-  <section class="slide">
+  <section class="slide slide-compact">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路1：使途制限のない資金からインパクトへ</h2>
     </div>
+    <div class="slide-compact-main">
     <div class="path-row mb-6">
       <div class="path-box">使途制限のない資金</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -408,19 +481,21 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
         </ul>
       </li>
     </ul>
-    <div class="mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
+    <div class="path-footer-box mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
       <p class="text-3xl font-bold text-slate-800">
         <span class="text-amber-500 mr-2">Q.</span>
         使途不指定は万能ではないが、使途制限が「現場の合理的な判断を縛る」ケースはないか？
       </p>
     </div>
+    </div>
   </section>
 
   <!-- スライド 9: 経路2 -->
-  <section class="slide">
+  <section class="slide slide-compact">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路2：信頼関係からインパクトへ</h2>
     </div>
+    <div class="slide-compact-main">
     <div class="path-row mb-6">
       <div class="path-box">信頼関係</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -442,19 +517,21 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
         </ul>
       </li>
     </ul>
-    <div class="mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
+    <div class="path-footer-box mt-8 bg-white border-l-8 border-amber-400 p-6 rounded-r shadow-sm">
       <p class="text-3xl font-bold text-slate-800">
         <span class="text-amber-500 mr-2">Q.</span>
         助成先が「うまくいっていません」と正直に言える関係性は、どうすれば生み出せるのか？
       </p>
     </div>
+    </div>
   </section>
 
   <!-- スライド 10: 経路3 -->
-  <section class="slide">
+  <section class="slide slide-compact">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路3：管理負担軽減からインパクトへ</h2>
     </div>
+    <div class="slide-compact-main">
     <div class="path-row mb-6">
       <div class="path-box">管理負担軽減</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -477,19 +554,21 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
         </ul>
       </li>
     </ul>
-    <div class="mt-6 bg-white border-l-8 border-amber-400 p-5 rounded-r shadow-sm">
+    <div class="path-footer-box mt-6 bg-white border-l-8 border-amber-400 p-5 rounded-r shadow-sm">
       <p class="text-3xl font-bold text-slate-800">
         <span class="text-amber-500 mr-2">Q.</span>
         報告のための作業が、本来の活動を圧迫していないか？
       </p>
     </div>
+    </div>
   </section>
 
   <!-- スライド 11: 経路4 -->
-  <section class="slide">
+  <section class="slide slide-compact">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">経路4：助成先の専門性への信頼</h2>
     </div>
+    <div class="slide-compact-main">
     <div class="path-row mb-6">
       <div class="path-box" style="font-size: 1.3rem;">助成先の専門性への信頼</div>
       <div class="path-arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -513,9 +592,10 @@ task: public web slides session2 US trust impact (GitHub Pages ready)
         </ul>
       </li>
     </ul>
-    <div class="mt-6 bg-slate-200 p-4 rounded-lg flex items-center">
-      <i class="fas fa-info-circle text-teal-600 text-2xl mr-4"></i>
+    <div class="path-note-bar mt-6 bg-slate-200 p-4 rounded-lg flex items-center">
+      <i class="fas fa-info-circle text-teal-600 text-xl mr-3 flex-shrink-0"></i>
       <p class="text-xl text-slate-700 font-bold">【グラデーションの存在】 報告書の簡素化といった漸進的な改善から、意思決定構造そのものをフラットにする根本的な変革まで、多様なアプローチがある。</p>
+    </div>
     </div>
   </section>
 
