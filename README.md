@@ -14,10 +14,17 @@ task: README for public session2 HTML slides (GitHub Pages bundle)
 | ファイル | 説明 |
 | --- | --- |
 | `index.html` | スライド本体（GitHub Pages ではルートの `index.html` として配置） |
-| `index_tbpp-revision.html` | **共同代表FB反映稿**（2026-04-06）。`index.html` と内容を同期済みの場合あり。 |
+| `index_tbpp-revision.html` | **共同代表FB反映稿**。`index.html` と内容を同期済みの場合あり。 |
 | `assets/trust-based-philanthropy-japan-logo.png` | Trust-Based Philanthropy Japan ロゴ |
-| `assets/tbpp-in-4d-official-diagram.png` | TBPP公式4D図（配布ppt `2025-04-09 TBP.pptx` より） |
-| `assets/tbpp-project-website-hero.png` | TBPP公式サイト画面キャプチャ（同上pptより） |
+| `assets/tbp-2025-04-09-pdf/page-01.png` … `page-09.png` | **TBPP配布PDF**（`2025-04-09 TBP.pdf`）全9ページを PyMuPDF でレンダリングした画像 |
+| `assets/tbpp-in-4d-official-diagram.png` 等 | 旧ppt抽出の残置（参照用。本デッキの主参照は上記PDF画像） |
+
+PDFを差し替えたときは、同解像度で `page-NN.png` を再生成し、HTML内の枚数とパスを合わせてください。
+
+```text
+pip install pymupdf
+python -c "import fitz; from pathlib import Path; pdf=Path(r'…\2025-04-09 TBP.pdf'); out=Path(r'…\assets\tbp-2025-04-09-pdf'); out.mkdir(parents=True, exist_ok=True); d=fitz.open(pdf); m=fitz.Matrix(2,2); [d.load_page(i).get_pixmap(matrix=m,alpha=False).save(out/f'page-{i+1:02d}.png') for i in range(len(d))]; d.close()"
+```
 
 ## ローカルで確認
 
