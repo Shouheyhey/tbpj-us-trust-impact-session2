@@ -14,7 +14,10 @@ task: README for public session2 HTML slides (GitHub Pages bundle)
 | ファイル | 説明 |
 | --- | --- |
 | `index.html` | スライド本体（GitHub Pages ではルートの `index.html` として配置） |
+| `index_tbpp-revision.html` | **共同代表FB反映稿**（2026-04-06）。`index.html` と内容を同期済みの場合あり。 |
 | `assets/trust-based-philanthropy-japan-logo.png` | Trust-Based Philanthropy Japan ロゴ |
+| `assets/tbpp-in-4d-official-diagram.png` | TBPP公式4D図（配布ppt `2025-04-09 TBP.pptx` より） |
+| `assets/tbpp-project-website-hero.png` | TBPP公式サイト画面キャプチャ（同上pptより） |
 
 ## ローカルで確認
 
@@ -29,6 +32,10 @@ task: README for public session2 HTML slides (GitHub Pages bundle)
 5. 公開後も修正する場合は、ワークスペースで `index.html` を編集し、同じファイルをリポジトリ側に上書きコピーして再度 push する。
 
 （ワークスペース全体の Git リポジトリをそのまま public にしないでください。）
+
+## プレビュー用ブランチのリモート push / GitHub Pages
+
+`feature/tbp-session2-tbpp-revision` をリモートに載せてブラウザで確認し、後から `main` にマージする手順は [PUSH_AND_PAGES.md](PUSH_AND_PAGES.md) を参照。ワークスペースルートで `./scripts/push-tbp-session2-branch.sh '<リモートURL>'` も利用可（`origin` 未設定時のみ `origin` を追加）。
 
 ## ロゴの取り扱い
 
