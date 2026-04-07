@@ -3,7 +3,7 @@
 created_by: cursor
 created_at: 2026-04-04
 project: TBP-J
-task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合スライド削除（2026-04-06改訂）
+task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、CEP/Bridgespan概観・SSIR-Jスクショ・キーワード改訂（2026-04-07）
 -->
 <html lang="ja">
 <head>
@@ -419,13 +419,199 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
       font-weight: 600;
       letter-spacing: 0.05em;
     }
+    /* 各経路の説明スライドの直後：助成財団の具体例 */
+    .slide-case-study {
+      padding: 2rem 4rem 5.75rem;
+    }
+    .slide-case-study .slide-header {
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      flex-shrink: 0;
+    }
+    .slide-case-study .slide-header h2 {
+      font-size: clamp(1.35rem, 2vw, 1.85rem) !important;
+      line-height: 1.2;
+    }
+    .case-study-body {
+      display: flex;
+      flex: 1;
+      min-height: 0;
+      gap: 1.75rem;
+      align-items: stretch;
+    }
+    .case-study-left {
+      flex: 1 1 58%;
+      min-width: 0;
+      overflow-y: auto;
+      font-size: 1.22rem;
+      line-height: 1.45;
+      color: #334155;
+    }
+    .case-study-left .case-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #0f766e;
+      background: #ccfbf1;
+      padding: 0.2rem 0.55rem;
+      border-radius: 0.25rem;
+      margin-bottom: 0.35rem;
+    }
+    .case-study-left .case-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 0.65rem;
+      line-height: 1.3;
+    }
+    .case-study-left .case-block-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+    .case-study-left .case-metrics {
+      background: #f8fafc;
+      border-left: 4px solid #0d9488;
+      padding: 0.55rem 0.75rem;
+      border-radius: 0 0.35rem 0.35rem 0;
+      font-size: 1.05rem;
+    }
+    .case-study-right {
+      flex: 0 0 38%;
+      max-width: 38%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.65rem;
+      padding: 0.5rem;
+      background: #f1f5f9;
+      border-radius: 0.65rem;
+      border: 1px solid #e2e8f0;
+    }
+    .case-study-right img.case-logo {
+      max-height: 38vh;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+    .case-study-right a.case-site-link {
+      font-size: 0.95rem;
+      color: #0d9488;
+      font-weight: 600;
+      word-break: break-all;
+      text-align: center;
+      line-height: 1.35;
+    }
+    /* P8: 米国でTBPが生じた背景 — 下部の調査・レポート概観 */
+    .slide-tbp-background .slide-header {
+      margin-bottom: 0.75rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    .slide-tbp-background .slide-header p.text-2xl {
+      font-size: 1.1rem !important;
+      line-height: 1.45 !important;
+      margin-top: 0.5rem !important;
+    }
+    .slide-tbp-background-main {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .slide-tbp-background-main > ul.custom-list > li {
+      font-size: 1.28rem;
+      margin-bottom: 0.35rem;
+      line-height: 1.32;
+    }
+    .slide-tbp-reports {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      border-top: 2px solid #cbd5e1;
+      padding-top: 0.55rem;
+      margin-top: 0.15rem;
+    }
+    .slide-tbp-reports > h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #0f766e;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.45rem;
+    }
+    .slide-tbp-report-block {
+      margin-bottom: 0.45rem;
+      padding: 0.45rem 0.6rem;
+      background: #f1f5f9;
+      border-radius: 0.35rem;
+      border-left: 4px solid #0d9488;
+    }
+    .slide-tbp-report-block h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.3;
+      margin-bottom: 0.2rem;
+    }
+    .slide-tbp-report-block p {
+      font-size: 0.88rem;
+      line-height: 1.38;
+      color: #334155;
+      margin-bottom: 0.2rem;
+    }
+    .slide-tbp-report-block p:last-child {
+      margin-bottom: 0;
+    }
+    .slide-tbp-report-block a {
+      color: #0d9488;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    /* P9: SSIR-J — 左本文・右URLページのスクリーンショット */
+    .slide-ssir-split {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .slide-ssir-split-left {
+      flex: 1 1 52%;
+      min-width: 0;
+      overflow-y: auto;
+      max-height: calc(100vh - 10.5rem);
+    }
+    .slide-ssir-split-right {
+      flex: 0 0 42%;
+      max-width: 42%;
+    }
+    .slide-ssir-split-right img {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    }
+    .slide-ssir-split-right .ssir-screenshot-caption {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 0.3rem;
+      text-align: center;
+      line-height: 1.35;
+    }
   </style>
 </head>
 <body>
 
   <img src="assets/trust-based-philanthropy-japan-logo.png" id="global-logo" style="position: fixed; top: 30px; right: 50px; height: 60px; z-index: 100; display: none; object-fit: contain;" alt="Trust-Based Philanthropy Japan のロゴ" onerror="this.style.display='none'">
 
-  <div class="progress" id="progress">1 / 20</div>
+  <div class="progress" id="progress">1 / 21</div>
   <div class="controls">
     <button class="ctrl-btn" onclick="toggleFullScreen()" title="フルスクリーン切り替え">
       <i class="fas fa-expand"></i>
@@ -465,8 +651,8 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
         <h3 class="text-3xl font-bold text-teal-700 mb-6 border-l-4 border-teal-500 pl-4">本日の流れ</h3>
         <ul class="custom-list mt-8">
           <li>第1回の振り返り</li>
-          <li>Trust-Based Philanthropyとは</li>
-          <li>インパクトを手放しているわけではない</li>
+          <li>Trust-Based Philanthropy（TBP）とは</li>
+          <li>TBPのよくある誤解</li>
           <li>米国でTBPが生じた背景</li>
           <li>「信頼」が「インパクト」を生む4つのロジック</li>
           <li>クロージング</li>
@@ -507,7 +693,7 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
   <!-- インパクトを手放しているわけではない -->
   <section class="slide">
     <div class="slide-header">
-      <h2 class="text-5xl font-bold text-slate-800">インパクトを手放しているわけではない</h2>
+      <h2 class="text-5xl font-bold text-slate-800">TBPのよくある誤解</h2>
     </div>
     <div class="flex flex-col items-center justify-center h-full pb-20">
       <div class="text-center mb-12">
@@ -553,39 +739,63 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
   </section>
 
   <!-- 米国でTBPが生じた背景 -->
-  <section class="slide">
+  <section class="slide slide-tbp-background flex flex-col min-h-0">
     <div class="slide-header">
       <h2 class="text-5xl font-bold text-slate-800">米国でTBPが生じた背景</h2>
       <p class="text-2xl text-slate-600 mt-4 leading-relaxed max-w-5xl">資金と報告をめぐる力関係、助成先の時間の使い方、そして2020年代の社会変化が重なり、トラスト・ベースドの考え方が脚光を浴びる土壌が整いました。大きく次の3点に要約できます。</p>
     </div>
-    <ul class="custom-list mt-4">
-      <li><strong>権力の非対称</strong> — 助成先は資金提供者の動向に敏感になりやすい一方、逆方向には同じ緊張が働きにくい。</li>
-      <li><strong>報告と事務の負担</strong> — 報告に費やす時間は大きく、有用性への評価は必ずしも高くない（CEP調査など）。</li>
-      <li><strong>パラダイムの転換</strong> — パンデミックや社会運動を経て、一般運営支援の拡大など、資金の渡し方が見直される流れが強まった。</li>
-    </ul>
+    <div class="slide-tbp-background-main">
+      <ul class="custom-list mt-1 shrink-0">
+        <li><strong>権力の非対称</strong> — 助成先は資金提供者の動向に敏感になりやすい一方、逆方向には同じ緊張が働きにくい。</li>
+        <li><strong>報告と事務の負担</strong> — 報告に費やす時間は大きく、有用性への評価は必ずしも高くない（CEP調査など）。</li>
+        <li><strong>パラダイムの転換</strong> — パンデミックや社会運動を経て、一般運営支援の拡大など、資金の渡し方が見直される流れが強まった。</li>
+      </ul>
+      <div class="slide-tbp-reports">
+        <h3>代表的な調査・レポート（概観）</h3>
+        <div class="slide-tbp-report-block">
+          <h4>A. Relationships Matter: Program Officers, Grantees, and the Keys to Success（2017）</h4>
+          <p><strong>調査:</strong> 約2万件の助成先、80以上の財団、11人のプログラムオフィサーへのインタビュー（Kresge、Gates、Ford 等）を実施。</p>
+          <p><strong>要点:</strong> 助成者と助成先の強い関係は、非営利の目標達成を直接的に促進する、と報告されている。</p>
+          <p><a href="https://cep.org/report/relationships-matter/" target="_blank" rel="noopener noreferrer">cep.org/report/relationships-matter/</a></p>
+        </div>
+        <div class="slide-tbp-report-block">
+          <h4>B. The Trust-Based Philanthropy Conundrum: Toward Donor-Doer Relationships That Drive Impact（2024）</h4>
+          <p><strong>調査・参照:</strong> 社会科学や営利投資の知見に加え、Ballmer Group による大型かつ使途自由な複数年助成の影響に関する独自の調査を参照。Center for Effective Philanthropy 等による MacKenzie Scott の助成先調査とも整合する知見が示されている。</p>
+          <p><strong>要点:</strong> 管理とコンプライアンスを重視する従来型から、非営利の専門性を認める信頼に基づくアプローチへ移行すると、組織の活力・能力・イノベーションが引き出されやすい、と論じている。</p>
+          <p><strong>要点:</strong> 信頼に基づくフィランソロピーの最大の成果は、単なる資金の仕組みにとどまらず、寄付者と非営利の双方がそれぞれの強みや資産を共有の目標に向けて最大限発揮できる余白を生み出すことにある、と強調している。</p>
+          <p><a href="https://www.bridgespan.org/insights/trust-based-philanthropy/the-trust-based-philanthropy-conundrum" target="_blank" rel="noopener noreferrer">Bridgespan — The Trust-Based Philanthropy Conundrum</a></p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- 「信頼」が「インパクト」を生む4つのロジック（導入・SSIR-J） -->
-  <section class="slide">
+  <section class="slide flex flex-col min-h-0">
     <div class="slide-header">
       <h2 class="text-4xl md:text-5xl font-bold text-slate-800 leading-tight">「信頼」が「インパクト」を生む4つのロジック</h2>
       <p class="text-xl md:text-2xl text-slate-600 mt-4 leading-relaxed max-w-5xl">SSIR-J掲載の論考を土台に、信頼に基づく助成と成果のあいだを<strong>4つの論理</strong>で整理します。記事の考え方と、皆さんの現場での実践とを重ね合わせながら進めていきます。</p>
     </div>
-    <div class="mt-6 max-w-5xl space-y-5 text-xl text-slate-700 leading-relaxed">
-      <p class="font-bold text-teal-800 text-2xl">4つの論理（因果の整理）</p>
-      <ol class="list-decimal list-inside space-y-3 pl-1">
-        <li><strong>余白のある資金</strong>が、環境変化への<strong>現場の切り替え</strong>を可能にする。</li>
-        <li><strong>信頼関係</strong>が、課題の<strong>早期共有</strong>と支援の組み替えを可能にする。</li>
-        <li><strong>管理負担の軽減</strong>が、プログラムに<strong>時間と人を戻す</strong>。</li>
-        <li><strong>助成先の専門性への信頼</strong>が、小さな財団でも<strong>幅広い課題に手を伸ばす</strong>設計を可能にする。</li>
-      </ol>
-      <div class="pt-2 border-t border-slate-200">
-        <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">参照記事（SSIR-J）</p>
-        <p class="text-2xl font-bold text-slate-800">トラスト・ベースド・フィランソロピーの戦略的価値</p>
-        <p class="text-lg text-slate-600 mt-1">ステイシー・ファエラ、ライアン・ロバーソン ほか</p>
-        <p class="text-lg mt-3 break-all">
-          <a href="https://ssir-j.org/trust-based-philanthropy-strategic/" class="text-teal-700 underline font-medium" target="_blank" rel="noopener noreferrer">https://ssir-j.org/trust-based-philanthropy-strategic/</a>
-        </p>
+    <div class="slide-ssir-split mt-4">
+      <div class="slide-ssir-split-left space-y-4 text-xl text-slate-700 leading-relaxed pr-1">
+        <p class="font-bold text-teal-800 text-2xl">4つの論理（因果の整理）</p>
+        <ol class="list-decimal list-inside space-y-2 pl-1">
+          <li><strong>余白のある資金</strong>が、環境変化への<strong>現場の切り替え</strong>を可能にする。</li>
+          <li><strong>信頼関係</strong>が、課題の<strong>早期共有</strong>と支援の組み替えを可能にする。</li>
+          <li><strong>管理負担の軽減</strong>が、プログラムに<strong>時間と人を戻す</strong>。</li>
+          <li><strong>助成先の専門性への信頼</strong>が、小さな財団でも<strong>幅広い課題に手を伸ばす</strong>設計を可能にする。</li>
+        </ol>
+        <div class="pt-2 border-t border-slate-200">
+          <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">参照記事（SSIR-J）</p>
+          <p class="text-xl font-bold text-slate-800">トラスト・ベースド・フィランソロピーの戦略的価値</p>
+          <p class="text-base text-slate-600 mt-1">ステイシー・ファエラ、ライアン・ロバーソン ほか</p>
+          <p class="text-base mt-2 break-all">
+            <a href="https://ssir-j.org/trust-based-philanthropy-strategic/" class="text-teal-700 underline font-medium" target="_blank" rel="noopener noreferrer">https://ssir-j.org/trust-based-philanthropy-strategic/</a>
+          </p>
+        </div>
+      </div>
+      <div class="slide-ssir-split-right">
+        <img src="assets/ssir-j-trust-based-strategic-screenshot.png" alt="SSIR-J「トラスト・ベースド・フィランソロピーの戦略的価値」記事ページのスクリーンショット" />
+        <p class="ssir-screenshot-caption">記事ページの表示例（2026年4月7日取得・参考）</p>
       </div>
     </div>
   </section>
@@ -670,6 +880,27 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
     </div>
   </section>
 
+  <!-- 経路1 具体例（各経路説明の直後） -->
+  <section class="slide slide-case-study flex flex-col min-h-0">
+    <div class="slide-header">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800">経路1の具体例</h2>
+      <p class="text-xl text-slate-600 mt-2">SSIR-J掲載論考（SCSJ関係者の知見）に登場する、社会復帰支援の対比事例</p>
+    </div>
+    <div class="case-study-body flex-1 min-h-0">
+      <div class="case-study-left">
+        <span class="case-tag">経路1：使途の余白と環境への適応</span>
+        <p class="case-title">「釈放直後」の支援で、ニーズに合わせて届け方を変えにくかった現場</p>
+        <p>記事では、<strong>刑務所を出所し、社会復帰の直後にある人</strong>（英語では <em>returning citizens / reentry</em>）向けの支援が取り上げられています。ニーズ調査では<strong>電話やSMSの方が有効</strong>という示唆があった一方、<strong>当初プロジェクトに縛られた助成</strong>のもとでは<strong>書面のツールキットを続ける</strong>しかなく、方針転換が難しかった、と説明されています。</p>
+        <p class="case-block-label">対比（同じ記事）</p>
+        <p><strong>Southern Coalition for Social Justice（SCSJ）</strong>は、使途に余白のある資金のもと、パンデミック下で<strong>オンライン研修へ切り替え</strong>、大きな成果につながった、と紹介されています。</p>
+      </div>
+      <div class="case-study-right">
+        <img src="assets/scsj-logo.jpg" alt="Southern Coalition for Social Justice ロゴ" class="case-logo" />
+        <a href="https://ssir-j.org/trust-based-philanthropy-strategic/" class="case-site-link" target="_blank" rel="noopener noreferrer">SSIR-J「トラスト・ベースド・フィランソロピーの戦略的価値」</a>
+      </div>
+    </div>
+  </section>
+
   <!-- 経路2 -->
   <section class="slide slide-compact slide-path-detail path-detail-single-row">
     <div class="slide-header">
@@ -697,6 +928,25 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
       </p>
     </div>
     </div>
+    </div>
+  </section>
+
+  <!-- 経路2 具体例 -->
+  <section class="slide slide-case-study flex flex-col min-h-0">
+    <div class="slide-header">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800">経路2の具体例</h2>
+      <p class="text-xl text-slate-600 mt-2">Woodcock Foundation × Southern Coalition for Social Justice（SSIR-J）</p>
+    </div>
+    <div class="case-study-body flex-1 min-h-0">
+      <div class="case-study-left">
+        <span class="case-tag">経路2：信頼関係と計画外ニーズ</span>
+        <p class="case-title">申請書に書いていないニーズへ、関係性のもとで応答する</p>
+        <p>同じ論考では、<strong>Woodcock Foundation</strong>と<strong>SCSJ</strong>の関係が例示されています。信頼関係のもとで<strong>計画にないニーズ</strong>（最高裁関連のマイクロサイト、民主主義活動に伴う<strong>セキュリティ上の脅威</strong>など）が共有され、財団が<strong>迅速な対応助成</strong>、コンサルタント雇用による<strong>能力強化助成</strong>、<strong>被助成団体横断のワークショップ</strong>など、申請書にない形で支援した、と説明されています。</p>
+      </div>
+      <div class="case-study-right">
+        <img src="assets/woodcock-logo.svg" alt="Woodcock Foundation ロゴ" class="case-logo" />
+        <a href="https://woodcockfdn.org/" class="case-site-link" target="_blank" rel="noopener noreferrer">woodcockfdn.org</a>
+      </div>
     </div>
   </section>
 
@@ -730,6 +980,26 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
     </div>
   </section>
 
+  <!-- 経路3 具体例 -->
+  <section class="slide slide-case-study flex flex-col min-h-0">
+    <div class="slide-header">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800">経路3の具体例</h2>
+      <p class="text-xl text-slate-600 mt-2">Compton Foundation（報告・申請プロセスの見直し）</p>
+    </div>
+    <div class="case-study-body flex-1 min-h-0">
+      <div class="case-study-left">
+        <span class="case-tag">経路3：管理負担の軽減とミッションへの回帰</span>
+        <p class="case-title">報告を対話に置き換え、時間をプログラム側へ戻す設計</p>
+        <p>Compton Foundation は、<strong>報告をほぼ廃止して対話に置換</strong>し、<strong>複数年・非制限</strong>、申請の<strong>簡素化（LOIから対話）</strong>など、助成管理に奪われる時間を減らしミッションにリソースを戻す実践を公表しています。TBPPの事例紹介（spend-out）でも、トラスト・ベースドの実装として言及されています。</p>
+      </div>
+      <div class="case-study-right">
+        <img src="assets/compton-logo.svg" alt="Compton Foundation ロゴ" class="case-logo" />
+        <a href="https://comptonfoundation.org/" class="case-site-link" target="_blank" rel="noopener noreferrer">comptonfoundation.org</a>
+        <a href="https://www.trustbasedphilanthropy.org/blog-1/2020/18/8/compton-foundation-trust-based-spend-out" class="case-site-link" target="_blank" rel="noopener noreferrer">TBPP：Compton のトラスト・ベースド spend-out</a>
+      </div>
+    </div>
+  </section>
+
   <!-- 経路4 -->
   <section class="slide slide-compact slide-path-detail path-detail-single-row">
     <div class="slide-header">
@@ -757,6 +1027,28 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
       </p>
     </div>
     </div>
+    </div>
+  </section>
+
+  <!-- 経路4 具体例 -->
+  <section class="slide slide-case-study flex flex-col min-h-0">
+    <div class="slide-header">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-800">経路4の具体例</h2>
+      <p class="text-xl text-slate-600 mt-2">Satterberg Foundation（少人数スタッフと多領域の助成）</p>
+    </div>
+    <div class="case-study-body flex-1 min-h-0">
+      <div class="case-study-left">
+        <span class="case-tag">経路4：専門性への信頼とスケーラビリティ</span>
+        <p class="case-title">分野ごとに人を増やさず、助成先の知見に委ねる</p>
+        <p>Satterberg Foundation は、スタッフを<strong>少人数</strong>に保ちながら、<strong>200団体超</strong>への<strong>複数年・一般運営支援</strong>などで多領域に関与している、と公表しています。<strong>助成先の専門性やコミュニティの知見を信頼</strong>し、財団側がすべてを内製しない設計でスケールを確保する、という経路4の典型に位置づけられます。</p>
+        <p class="case-block-label">補足</p>
+        <div class="case-metrics">Insight Circles 報告などで、助成先の声を反映した学習の仕組みが公開されています。資産規模などは 990・公式サイトで確認可能です。</div>
+      </div>
+      <div class="case-study-right">
+        <img src="assets/satterberg-tbp.jpg" alt="Satterberg Foundation とトラスト・ベースド・フィランソロピー" class="case-logo" />
+        <a href="https://satterberg.org/grantmaking/" class="case-site-link" target="_blank" rel="noopener noreferrer">satterberg.org/grantmaking</a>
+        <a href="https://satterberg.org/grantee-partner-insight-circles-report/" class="case-site-link" target="_blank" rel="noopener noreferrer">Grantee Partner Insight Circles 報告</a>
+      </div>
     </div>
   </section>
 
@@ -791,9 +1083,14 @@ task: session2 slides — TBPP抜粋＋4D_r図版、SSIR-J軸の4経路、統合
       <div class="w-1/2 flex flex-col">
         <h3 class="text-3xl font-bold text-teal-700 mb-6 border-b pb-2">本日のキーワード</h3>
         <ul class="custom-list mb-auto">
-          <li>TBPPの<strong>定義・6つの実践・4D</strong>と、SSIR-Jの<strong>4経路</strong>を区別して持ち帰る</li>
-          <li>無指定・複数年等は<strong>手段</strong>でありTBP全体ではない、という整理</li>
-          <li>誰の時間・専門性・経験に価値を置くか（4経路の核心）</li>
+          <li><strong>「信頼がインパクトを生む4つのロジック」</strong>（SSIR-J）
+            <ul class="list-disc pl-8 mt-2 space-y-1 text-lg text-slate-700">
+              <li>余白のある資金が、環境変化への現場の切り替えを可能にする</li>
+              <li>信頼関係が、課題の早期共有と支援の組み替えを可能にする</li>
+              <li>管理負担の軽減が、プログラムに時間と人を戻す</li>
+              <li>助成先の専門性への信頼が、小さな財団でも幅広い課題に手を伸ばす設計を可能にする</li>
+            </ul>
+          </li>
         </ul>
         <div class="mt-8 bg-teal-50 p-6 rounded-lg border border-teal-200">
           <p class="text-2xl font-bold text-teal-900 mb-2">第3回</p>

@@ -1,6 +1,7 @@
 ---
 created_by: cursor
 created_at: 2026-04-03
+updated_at: 2026-04-06
 project: TBP-J
 task: README for public session2 HTML slides (GitHub Pages bundle)
 ---
@@ -13,18 +14,15 @@ task: README for public session2 HTML slides (GitHub Pages bundle)
 
 | ファイル | 説明 |
 | --- | --- |
-| `index.html` | スライド本体（GitHub Pages ではルートの `index.html` として配置） |
-| `index_tbpp-revision.html` | **共同代表FB反映稿**。`index.html` と内容を同期済みの場合あり。 |
+| `index.html` | スライド本体（**20枚**。4経路一覧の直後に「助成財団の具体例」4枚を挿入） |
+| `index_tbpp-revision.html` | **代表理事コメント反映稿**（TBPP公式6 practices/4D、同上の具体例4枚。**23枚**）。レビュー後に `index.html` へ差し替え可。 |
 | `assets/trust-based-philanthropy-japan-logo.png` | Trust-Based Philanthropy Japan ロゴ |
-| `assets/tbp-2025-04-09-pdf/page-01.png` … `page-09.png` | **TBPP配布PDF**（`2025-04-09 TBP.pdf`）全9ページを PyMuPDF でレンダリングした画像 |
-| `assets/tbpp-in-4d-official-diagram.png` 等 | 旧ppt抽出の残置（参照用。本デッキの主参照は上記PDF画像） |
+| `assets/scsj-logo.jpg` | SCSJ ロゴ（事例スライド用・southerncoalition.org 公開素材） |
+| `assets/woodcock-logo.svg` | Woodcock Foundation ロゴ |
+| `assets/compton-logo.svg` | Compton Foundation ロゴ |
+| `assets/satterberg-tbp.jpg` | Satterberg Foundation 公開画像（TBP 紹介用） |
 
-PDFを差し替えたときは、同解像度で `page-NN.png` を再生成し、HTML内の枚数とパスを合わせてください。
-
-```text
-pip install pymupdf
-python -c "import fitz; from pathlib import Path; pdf=Path(r'…\2025-04-09 TBP.pdf'); out=Path(r'…\assets\tbp-2025-04-09-pdf'); out.mkdir(parents=True, exist_ok=True); d=fitz.open(pdf); m=fitz.Matrix(2,2); [d.load_page(i).get_pixmap(matrix=m,alpha=False).save(out/f'page-{i+1:02d}.png') for i in range(len(d))]; d.close()"
-```
+各財団・団体のロゴ・画像の利用は、各公式サイトのガイドラインに従ってください。
 
 ## ローカルで確認
 
